@@ -1,0 +1,182 @@
+@import "./base.css";
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+
+.wrapper-container {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1024px;
+  min-height: 100vh;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  font-family: "Figtree", serif;
+}
+
+.header-container {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .header-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/*HEADING SECTION*/
+.heading-container {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.introduction {
+  color: #32b291;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.name {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.tech-class {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #6b7280;
+}
+
+/* CONTACT SECTION */
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+  max-width: 72rem;
+}
+
+@media (min-width: 768px) {
+  .contact-wrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-wrapper {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.icon-container {
+  background-color: #32b291;
+  color: #ffffff;
+  padding: 0.75rem;
+  border-radius: 9999px;
+  margin: 0 1rem;
+}
+
+.icon {
+  height: 1.5rem;
+  width: 1.5rem;
+
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-title {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.contact-description {
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.download-icon {
+  height: 1rem;
+}
+
+.download-anchor {
+  display: grid;
+  align-items: center;
+  gap: 0.5rem;
+  grid-template-columns: auto auto;
+}
+
+.main-content-wrapper {
+  width: 100%;
+  max-width: 1024px;
+  min-height: 100vh;
+}
+
+.heading-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 0.6rem;
+
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.heading-footer.hidden {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.footer-content-wrapper {
+  position: fixed;
+  bottom: 0;
+  font-size: 0.6rem;
+  text-align: center;
+  width: 100%;
+
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.footer-content-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
