@@ -1,6 +1,17 @@
 @import "./base.css";
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
 
+.hide {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .wrapper-container {
   position: relative;
 
@@ -143,8 +154,9 @@ a:hover {
 
 .main-content-wrapper {
   width: 100%;
-  max-width: 1024px;
+  max-width: 100%;
   min-height: 100vh;
+  background-color: red;
 }
 
 .heading-footer {
