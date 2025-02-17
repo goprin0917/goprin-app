@@ -9,14 +9,26 @@ function openLinkedIn() {
     window.open(url, '_blank');
 };
 
-function downloadResume() {
-    const directory = '/gabrieloprin.pdf';
-    const anchor = document.createElement('a');
-    anchor.href = directory;
-    anchor.download = 'gabrieloprin.pdf';
-    document.body.appendChild(anchor);
-    anchor.click();
-    document.body.removeChild(anchor);
+//TODO: File download not working
+
+const downloadResume = async () => {
+    try {
+        const response = await fetch("https://oxbvyasg79.execute-api.ap-southeast-1.amazonaws.com/default/downloadResume");
+        const data = await response.json();
+
+        if (!data.url) {
+            throw new Error('No valid URL received from server');
+        }
+
+        const link = document.createElement('a');
+        link.href = data.url;
+        link.download = 'gabriel-oprin-resume.pdf'; // Force download
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } catch (error) {
+        console.log("Error downloading file: ", error);
+    }
 };
 
 document.addEventListener('scroll', (event) => {
