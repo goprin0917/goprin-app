@@ -20,12 +20,17 @@ const downloadResume = async () => {
             throw new Error('No valid URL received from server');
         }
 
-        const link = document.createElement('a');
-        link.href = data.url;
-        link.download = 'gabriel-oprin-resume.pdf'; // Force download
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+      const fileResponse = await fetch(data.url);
+      const blob = await fileResponse.blob();
+      const blobUrl = URL.createObjectURL(blob);
+
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = 'gabriel-oprin-resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(blobUrl);
     } catch (error) {
         console.log("Error downloading file: ", error);
     }
@@ -72,3 +77,7 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('.hide');
 hiddenElements.forEach((el) => observer.observe(el));
+
+function handleClick(step) {
+    alert(`Step ${step} clicked!`);
+}
