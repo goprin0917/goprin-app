@@ -159,23 +159,29 @@
           </div>
         </section>
         <section id="headingFooter" class="heading-footer">
-          @ 2025 Gabriel Oprin | Backend Developer. All Rights Reserved.
+          @ <label id="copyrightYear"></label> Gabriel Oprin | Backend
+          Developer. All Rights Reserved.
         </section>
       </div>
       <main class="main-content-wrapper hide">
         <section id="about" class="about-section">
           <div class="grid-item-container">
             <div class="image-container">
-              <div class="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item">
-                    <img alt="gab-toga" src="/assets/toga.JPG" />
-                  </div>
-                  <div class="carousel-item">
-                    <img alt="gab-barong" src="/assets/barong.JPG" />
-                  </div>
+              <div
+                id="educationImageCarousel"
+                class="carousel hide-about-image-containers"
+              >
+                <div class="carousel-item">
+                  <img alt="gab-toga" src="/assets/toga.JPG" />
+                </div>
+                <div class="carousel-item">
+                  <img alt="gab-barong" src="/assets/barong.JPG" />
                 </div>
               </div>
+              <div
+                id="hobbiesImageContainer"
+                class="hobbies-image-container hide-about-image-containers"
+              ></div>
             </div>
           </div>
           <div class="grid-item-container">
@@ -210,7 +216,7 @@
                   inspirations.
                 </p>
               </div>
-              <div class="hobby-container hide-container">
+              <div id="hobbiesContainer" class="hobby-container hide-container">
                 <h3 class="education-title">Hobbies</h3>
               </div>
             </div>
