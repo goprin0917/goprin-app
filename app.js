@@ -79,7 +79,7 @@ const observer = new IntersectionObserver(
 );
 
 const hiddenElements = document.querySelectorAll(".hide");
-hiddenElements.forEach((el) => observer.observe(el));
+hiddenElements.forEach((element) => observer.observe(element));
 
 function scrollToElement(elementId) {
   const element = document.getElementById(elementId);
@@ -102,7 +102,9 @@ const aboutContainersObserver = new IntersectionObserver(
 );
 
 const hiddenAboutContainers = document.querySelectorAll(".hide-container");
-hiddenAboutContainers.forEach((el) => aboutContainersObserver.observe(el));
+hiddenAboutContainers.forEach((element) =>
+  aboutContainersObserver.observe(element)
+);
 
 const carouselItems = document.querySelectorAll(".carousel-item");
 let currentIndex = 0;
@@ -115,10 +117,12 @@ function showNextItem() {
 
 carouselItems[currentIndex].classList.add("active");
 
-setInterval(showNextItem, 15000);
+setInterval(showNextItem, 20000);
 
-const copyrightYearLabelElement = document.getElementById("copyrightYear");
-copyrightYearLabelElement.textContent = new Date().getFullYear();
+const copyrightYearLabelElement = document.querySelectorAll("#copyrightYear");
+copyrightYearLabelElement.forEach((element) => {
+  element.textContent = new Date().getFullYear();
+});
 
 const aboutDescriptionContainerElement = document.getElementById(
   "aboutDescriptionContainer"
@@ -133,36 +137,15 @@ const hobbiesImageContainerElement = document.getElementById(
   "hobbiesImageContainer"
 );
 
-//TODO: Issue in Changing of image containers
-const aboutParentContainerObserver = new IntersectionObserver(
+const educationContainerAndParentContainerObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log(entry);
-      }
-      if (entry.isIntersecting && entry.target.id === "educationContainer") {
         educationImageCarouselElement.classList.add(
           "show-about-image-containers"
         );
-      } else if (
-        !entry.isIntersecting &&
-        entry.target.id !== "educationContainer"
-      ) {
+      } else {
         educationImageCarouselElement.classList.remove(
-          "show-about-image-containers"
-        );
-      } else if (
-        entry.isIntersecting &&
-        entry.target.id === "hobbiesContainer"
-      ) {
-        hobbiesImageContainerElement.classList.add(
-          "show-about-image-containers"
-        );
-      } else if (
-        !entry.isIntersecting &&
-        entry.target.id !== "hobbiesContainer"
-      ) {
-        hobbiesImageContainerElement.classList.remove(
           "show-about-image-containers"
         );
       }
@@ -174,5 +157,25 @@ const aboutParentContainerObserver = new IntersectionObserver(
   }
 );
 
-aboutParentContainerObserver.observe(educationContainerElement);
-aboutParentContainerObserver.observe(hobbiesContainerElement);
+// const hobbiesContainerAndParentContainerObserver = new IntersectionObserver(
+//   (entries) => {
+//     entries.forEach((entry) => {
+//       if (entry.isIntersecting) {
+//         hobbiesImageContainerElement.classList.add(
+//           "show-about-image-containers"
+//         );
+//       } else {
+//         hobbiesImageContainerElement.classList.remove(
+//           "show-about-image-containers"
+//         );
+//       }
+//     });
+//   },
+//   {
+//     root: aboutDescriptionContainerElement,
+//     threshold: 0.2,
+//   }
+// );
+
+educationContainerAndParentContainerObserver.observe(educationContainerElement);
+// hobbiesContainerAndParentContainerObserver.observe(hobbiesContainerElement);
