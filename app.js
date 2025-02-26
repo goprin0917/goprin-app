@@ -156,6 +156,7 @@ const educationContainerAndParentContainerObserver = new IntersectionObserver(
     threshold: 0.2,
   }
 );
+educationContainerAndParentContainerObserver.observe(educationContainerElement);
 
 // const hobbiesContainerAndParentContainerObserver = new IntersectionObserver(
 //   (entries) => {
@@ -177,5 +178,4 @@ const educationContainerAndParentContainerObserver = new IntersectionObserver(
 //   }
 // );
 
-educationContainerAndParentContainerObserver.observe(educationContainerElement);
 // hobbiesContainerAndParentContainerObserver.observe(hobbiesContainerElement);
