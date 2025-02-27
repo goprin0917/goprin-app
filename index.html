@@ -2,24 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/style/main.css" />
+    <link rel="stylesheet" href="src/style/main.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gabby's Portfolio</title>
-    <script defer src="app.js"></script>
   </head>
   <body>
     <div class="wrapper">
+      <div class="bars-container">
+        <img id="barsIconMenu" class="bars-icon" />
+      </div>
       <header class="header-container">
         <nav class="timeline-nav">
           <div class="nav-item">
-            <label class="nav-link" onclick="scrollToElement('home')"
-              >home</label
-            >
+            <label id="homeNavLabel" class="nav-link">home</label>
             <div class="marker-container">
-              <div
-                onclick="scrollToElement('home')"
-                class="circle-marker"
-              ></div>
+              <div id="homeMarker" class="circle-marker"></div>
               <div class="vertical-line"></div>
             </div>
           </div>
@@ -31,14 +28,9 @@
             </div>
           </div>
           <div class="nav-item">
-            <label class="nav-link" onclick="scrollToElement('about')">
-              about
-            </label>
+            <label id="aboutNavLabel" class="nav-link"> about </label>
             <div class="marker-container">
-              <div
-                class="circle-marker"
-                onclick="scrollToElement('about')"
-              ></div>
+              <div id="aboutMarker" class="circle-marker"></div>
               <div class="vertical-line"></div>
             </div>
           </div>
@@ -108,10 +100,8 @@
             <div class="description-container">
               <h3 class="contact-title">Contact Information</h3>
               <p class="contact-description">
-                <a href="#" onclick="openEmailClient()"
-                  >gabrieloprin@gmail.com</a
-                >
-                | <a href="#" onclick="openLinkedIn()">LinkedIn</a>
+                <a href="#" class="email-anchor">gabrieloprin@gmail.com</a>
+                | <a href="#" class="linkedin-anchor">LinkedIn</a>
               </p>
             </div>
           </div>
@@ -136,7 +126,7 @@
             <div class="description-container">
               <h3 class="contact-title">My Resume</h3>
               <p class="contact-description flex">
-                <a href="#" class="download-anchor" onclick="downloadResume()">
+                <a href="#" class="download-anchor">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="download-icon"
@@ -307,4 +297,5 @@
       </footer>
     </div>
   </body>
+  <script type="module" src="src/main.ts"></script>
 </html>
