@@ -1,5 +1,3 @@
-import "@fortawesome/fontawesome-free/css/all.min.css";
-
 document.querySelector(".email-anchor")?.addEventListener("click", (event) => {
   event.preventDefault();
   openEmailClient();
