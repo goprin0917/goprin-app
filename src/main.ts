@@ -222,15 +222,19 @@ educationContainerAndParentContainerObserver.observe(educationContainerElement);
 
 // hobbiesContainerAndParentContainerObserver.observe(hobbiesContainerElement);
 
-//TODO: Fix change of icon on click
-
-let isMenuClicked = false;
+let isMenuActive = false;
 
 const barsIconMenuElement = document.getElementById("barsIconMenu")!;
-barsIconMenuElement.setAttribute(
-  "src",
-  isMenuClicked ? "/assets/bars-solid.svg" : "/assets/xmark-solid.svg"
-);
+
+function updateMenuIcon() {
+  barsIconMenuElement.setAttribute(
+    "src",
+    isMenuActive ? "/assets/xmark-solid.svg" : "/assets/bars-solid.svg"
+  );
+}
+
+// This will setup or render the initial icon svg image.
+updateMenuIcon();
 
 barsIconMenuElement?.addEventListener("click", (event) => {
   event.preventDefault();
@@ -238,5 +242,6 @@ barsIconMenuElement?.addEventListener("click", (event) => {
 });
 
 function handleMenuClick() {
-  isMenuClicked = !isMenuClicked;
+  isMenuActive = !isMenuActive;
+  updateMenuIcon();
 }
