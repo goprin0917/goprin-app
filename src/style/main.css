@@ -30,6 +30,15 @@
   opacity: 1;
 }
 
+.active-marker {
+  background-color: #32b291;
+}
+
+.active-nav-label {
+  -webkit-text-stroke: 0.07px black;
+  color: #32b291;
+}
+
 .wrapper {
   position: relative;
   display: flex;
@@ -57,8 +66,13 @@
 
 @media (min-width: 320px) and (max-width: 640px) {
   .header-container {
+    transition: transform 0.5s ease;
     transform: translateX(100%);
   }
+}
+
+.show-header-container {
+  transform: translateX(0%);
 }
 
 .timeline-nav {

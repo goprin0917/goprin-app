@@ -101,6 +101,51 @@ const observer = new IntersectionObserver(
 const hiddenElements = document.querySelectorAll(".hide");
 hiddenElements.forEach((element) => observer.observe(element));
 
+const homeWrapperContainerElement = document.getElementById("home")!;
+const aboutSectionElement = document.getElementById("about")!;
+
+const homeMarkerElement = document.getElementById("homeMarker");
+const homeNavLabelElement = document.getElementById("homeNavLabel");
+const aboutMarkerElement = document.getElementById("aboutMarker");
+const aboutNavLabelElement = document.getElementById("aboutNavLabel");
+
+const homeSectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        homeMarkerElement?.classList.add("active-marker");
+        homeNavLabelElement?.classList.add("active-nav-label");
+      } else {
+        homeMarkerElement?.classList.remove("active-marker");
+        homeNavLabelElement?.classList.remove("active-nav-label");
+      }
+    });
+  },
+  {
+    threshold: 0.9,
+  }
+);
+
+const aboutSectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        aboutMarkerElement?.classList.add("active-marker");
+        aboutNavLabelElement?.classList.add("active-nav-label");
+      } else {
+        aboutMarkerElement?.classList.remove("active-marker");
+        aboutNavLabelElement?.classList.remove("active-nav-label");
+      }
+    });
+  },
+  {
+    threshold: 0.9,
+  }
+);
+
+homeSectionObserver.observe(homeWrapperContainerElement);
+aboutSectionObserver.observe(aboutSectionElement);
+
 document.getElementById("homeMarker")?.addEventListener("click", (event) => {
   event.preventDefault();
   scrollToElement("home");
@@ -170,13 +215,9 @@ const aboutDescriptionContainerElement = document.getElementById(
 );
 const educationContainerElement =
   document.getElementById("educationContainer")!;
-const hobbiesContainerElement = document.getElementById("hobbiesContainer");
 
 const educationImageCarouselElement = document.getElementById(
   "educationImageCarousel"
-);
-const hobbiesImageContainerElement = document.getElementById(
-  "hobbiesImageContainer"
 );
 
 const educationContainerAndParentContainerObserver = new IntersectionObserver(
@@ -200,41 +241,26 @@ const educationContainerAndParentContainerObserver = new IntersectionObserver(
 );
 educationContainerAndParentContainerObserver.observe(educationContainerElement);
 
-// const hobbiesContainerAndParentContainerObserver = new IntersectionObserver(
-//   (entries) => {
-//     entries.forEach((entry) => {
-//       if (entry.isIntersecting) {
-//         hobbiesImageContainerElement.classList.add(
-//           "show-about-image-containers"
-//         );
-//       } else {
-//         hobbiesImageContainerElement.classList.remove(
-//           "show-about-image-containers"
-//         );
-//       }
-//     });
-//   },
-//   {
-//     root: aboutDescriptionContainerElement,
-//     threshold: 0.2,
-//   }
-// );
-
-// hobbiesContainerAndParentContainerObserver.observe(hobbiesContainerElement);
-
 let isMenuActive = false;
 
 const barsIconMenuElement = document.getElementById("barsIconMenu")!;
+const headerContainerElement = document.getElementById("headerContainer");
 
-function updateMenuIcon() {
+function updateMenu() {
   barsIconMenuElement.setAttribute(
     "src",
     isMenuActive ? "/assets/xmark-solid.svg" : "/assets/bars-solid.svg"
   );
+
+  if (isMenuActive) {
+    headerContainerElement?.classList.add("show-header-container");
+  } else {
+    headerContainerElement?.classList.remove("show-header-container");
+  }
 }
 
 // This will setup or render the initial icon svg image.
-updateMenuIcon();
+updateMenu();
 
 barsIconMenuElement?.addEventListener("click", (event) => {
   event.preventDefault();
@@ -243,5 +269,5 @@ barsIconMenuElement?.addEventListener("click", (event) => {
 
 function handleMenuClick() {
   isMenuActive = !isMenuActive;
-  updateMenuIcon();
+  updateMenu();
 }
