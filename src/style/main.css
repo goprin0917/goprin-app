@@ -64,7 +64,7 @@
   backdrop-filter: blur(10px);
 }
 
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 1279px) {
   .header-container {
     transition: transform 0.5s ease;
     transform: translateX(100%);
@@ -382,7 +382,7 @@ img {
   border-radius: 1rem;
 }
 
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 1279px) {
   .about-description-container {
     border-radius: 0;
   }
@@ -455,7 +455,7 @@ img {
   padding: 1rem;
 }
 
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 1279px) {
   .paragraph-container {
     padding: 0;
   }
@@ -527,7 +527,7 @@ h3 {
   z-index: 99999999;
 }
 
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 1279px) {
   .bars-container {
     display: block;
   }
