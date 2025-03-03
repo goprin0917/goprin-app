@@ -271,3 +271,105 @@ function handleMenuClick() {
   isMenuActive = !isMenuActive;
   updateMenu();
 }
+
+// Language colors mapping (based on this github repository: https://github.com/salikansari6/github-languages-color-hex/blob/main/github-colors.json)
+const languageColors: Record<string, string> = {
+  JavaScript: "#f1e05a",
+  TypeScript: "#2b7489",
+  HTML: "#e34c26",
+  CSS: "#563d7c",
+  PHP: "#4F5D95",
+};
+
+const fetchPortfolioWebsiteLanguage = async () => {
+  try {
+    const response = await fetch(
+      "https://api.github.com/repos/goprin0917/goprin-app/languages"
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP Error! status: ${response.status}`);
+    }
+
+    const data = (await response.json()) as Record<string, number>;
+
+    // This will calculate the total bytes of the languages in the project.
+    const totalBytes = Object.values(data).reduce(
+      (sum: number, bytes: number) => sum + bytes,
+      0
+    );
+
+    // Get the progress bar element
+    const progressBar = document.querySelector(".progress-bar") as HTMLElement;
+    if (!progressBar) return;
+
+    // Get the language label container element
+    const labelContainer = document.querySelector(
+      ".language-label-container"
+    ) as HTMLElement;
+    if (!labelContainer) return;
+
+    // Clear any existing items
+    progressBar.innerHTML = "";
+    labelContainer.innerHTML = "";
+
+    // This will track the current position for placing items.
+    let currentPosition = 0;
+
+    // Create a progress items for each language.
+    for (const [language, bytes] of Object.entries(data)) {
+      const percentage = (bytes / totalBytes) * 100;
+      const formattedPercentage = percentage.toFixed(1) + "%";
+
+      // This will create new progress item.
+      const progressItem = document.createElement("div");
+      progressItem.className = "progress-item";
+
+      // This will set the position and width of the progress item
+      progressItem.style.left = `${currentPosition}%`;
+      progressItem.style.width = `${percentage}%`;
+
+      // This will set the color of the progress item (fallback to gray if language do not exist in mapping)
+      const color = languageColors[language] || "#ddd";
+      progressItem.style.backgroundColor = color;
+
+      // This will add title for hover effect
+      // progressItem.title = `${language}: ${percentage.toFixed(1)}%`;
+
+      // This will add the progress item to progress bar
+      progressBar.appendChild(progressItem);
+
+      // This will create a language label element
+      const labelInnerContainer = document.createElement("div");
+      labelInnerContainer.className = "language-label-inner-container";
+
+      //This will create a circle marker element for label.
+      const labelCircleMarker = document.createElement("div");
+      labelCircleMarker.className = "language-circle-marker";
+      labelCircleMarker.style.backgroundColor = color;
+
+      // This will create a language name label element
+      const languageLabel = document.createElement("label");
+      languageLabel.className = "language-label";
+      languageLabel.textContent = language;
+
+      // This will create a percentage span element
+      const percentSpan = document.createElement("span");
+      percentSpan.className = "progress-percent";
+      percentSpan.textContent = formattedPercentage;
+
+      // This will assemble the label container.
+      labelInnerContainer.appendChild(labelCircleMarker);
+      labelInnerContainer.appendChild(languageLabel);
+      labelInnerContainer.appendChild(percentSpan);
+      labelContainer.appendChild(labelInnerContainer);
+
+      // Update position for next itme.
+      currentPosition += percentage;
+    }
+  } catch (error) {
+    console.error("Error fetching language data:", error);
+  }
+};
+
+fetchPortfolioWebsiteLanguage();

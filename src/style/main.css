@@ -62,12 +62,14 @@
   padding: 1rem;
 
   backdrop-filter: blur(10px);
+
+  transition: transform 0.5s ease;
+  transform: translateX(100%);
 }
 
-@media (min-width: 320px) and (max-width: 1279px) {
+@media (min-width: 1280px) {
   .header-container {
-    transition: transform 0.5s ease;
-    transform: translateX(100%);
+    transform: translateX(0%);
   }
 }
 
@@ -272,6 +274,110 @@ a:hover {
   flex-direction: column;
 }
 
+.project-section {
+  position: relative;
+  width: 100%;
+  max-width: 1024px;
+  height: 100%;
+}
+
+.project-container {
+  display: flex;
+  padding: 1rem;
+}
+
+.web-view {
+  width: 320px;
+  height: 500px;
+  border-radius: 1rem;
+  border: 1px solid #ccc;
+}
+
+.project-title-container {
+  width: 100%;
+}
+
+.project-descriptions {
+  width: 100%;
+  max-height: 500px;
+  height: 500px;
+  /* background-color: #99bdb4; */
+
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.project-info-container {
+}
+
+.language-used-container {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.languages-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.language-label-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.language-label-inner-container {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.language-circle-marker {
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 100%;
+}
+
+.language-label {
+  font-weight: 500;
+}
+
+.progress-percent {
+  color: #686b6e;
+}
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 0.7rem;
+  display: flex;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.progress-item {
+  position: absolute;
+  z-index: 0;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.project-header {
+  width: 100%;
+}
+
+.project-overview {
+  width: 100%;
+  height: 100%;
+}
+
 .about-section {
   position: relative;
   width: 100%;
@@ -294,9 +400,6 @@ a:hover {
 @media (min-width: 320px) and (max-width: 640px) {
   .grid-item-container:first-child {
     display: none;
-  }
-  .grid-item-container {
-    padding: 0;
   }
 }
 
@@ -527,7 +630,7 @@ h3 {
   z-index: 99999999;
 }
 
-@media (min-width: 320px) and (max-width: 1279px) {
+@media (max-width: 1279px) {
   .bars-container {
     display: block;
   }
