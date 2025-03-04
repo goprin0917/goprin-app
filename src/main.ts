@@ -102,10 +102,13 @@ const hiddenElements = document.querySelectorAll(".hide");
 hiddenElements.forEach((element) => observer.observe(element));
 
 const homeWrapperContainerElement = document.getElementById("home")!;
+const projectSectionElement = document.getElementById("projects")!;
 const aboutSectionElement = document.getElementById("about")!;
 
 const homeMarkerElement = document.getElementById("homeMarker");
 const homeNavLabelElement = document.getElementById("homeNavLabel");
+const projectMarkerElement = document.getElementById("projectsMarker");
+const projectNavLabelElement = document.getElementById("projectsNavLabel");
 const aboutMarkerElement = document.getElementById("aboutMarker");
 const aboutNavLabelElement = document.getElementById("aboutNavLabel");
 
@@ -118,6 +121,23 @@ const homeSectionObserver = new IntersectionObserver(
       } else {
         homeMarkerElement?.classList.remove("active-marker");
         homeNavLabelElement?.classList.remove("active-nav-label");
+      }
+    });
+  },
+  {
+    threshold: 0.9,
+  }
+);
+
+const projectSectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        projectMarkerElement?.classList.add("active-marker");
+        projectNavLabelElement?.classList.add("active-nav-label");
+      } else {
+        projectMarkerElement?.classList.remove("active-marker");
+        projectNavLabelElement?.classList.remove("active-nav-label");
       }
     });
   },
@@ -144,6 +164,7 @@ const aboutSectionObserver = new IntersectionObserver(
 );
 
 homeSectionObserver.observe(homeWrapperContainerElement);
+projectSectionObserver.observe(projectSectionElement);
 aboutSectionObserver.observe(aboutSectionElement);
 
 document.getElementById("homeMarker")?.addEventListener("click", (event) => {
@@ -155,6 +176,20 @@ document.getElementById("homeNavLabel")?.addEventListener("click", (event) => {
   event.preventDefault();
   scrollToElement("home");
 });
+
+document
+  .getElementById("projectsNavLabel")
+  ?.addEventListener("click", (event) => {
+    event.preventDefault();
+    scrollToElement("projects");
+  });
+
+document
+  .getElementById("projectsMarker")
+  ?.addEventListener("click", (event) => {
+    event.preventDefault();
+    scrollToElement("projects");
+  });
 
 document.getElementById("aboutMarker")?.addEventListener("click", (event) => {
   event.preventDefault();
@@ -272,8 +307,12 @@ function handleMenuClick() {
   updateMenu();
 }
 
+interface LanguageColors {
+  [key: string]: string;
+}
+
 // Language colors mapping (based on this github repository: https://github.com/salikansari6/github-languages-color-hex/blob/main/github-colors.json)
-const languageColors: Record<string, string> = {
+const languageColors: LanguageColors = {
   JavaScript: "#f1e05a",
   TypeScript: "#2b7489",
   HTML: "#e34c26",
@@ -281,11 +320,13 @@ const languageColors: Record<string, string> = {
   PHP: "#4F5D95",
 };
 
-const fetchPortfolioWebsiteLanguage = async () => {
+const fetchRepositoryLanguages = async (
+  repoUrl: string,
+  progressBarClass: string,
+  labelContainerClass: string
+) => {
   try {
-    const response = await fetch(
-      "https://api.github.com/repos/goprin0917/goprin-app/languages"
-    );
+    const response = await fetch(repoUrl);
 
     if (!response.ok) {
       throw new Error(`HTTP Error! status: ${response.status}`);
@@ -300,12 +341,14 @@ const fetchPortfolioWebsiteLanguage = async () => {
     );
 
     // Get the progress bar element
-    const progressBar = document.querySelector(".progress-bar") as HTMLElement;
+    const progressBar = document.querySelector(
+      `.${progressBarClass}`
+    ) as HTMLElement;
     if (!progressBar) return;
 
     // Get the language label container element
     const labelContainer = document.querySelector(
-      ".language-label-container"
+      `.${labelContainerClass}`
     ) as HTMLElement;
     if (!labelContainer) return;
 
@@ -324,7 +367,6 @@ const fetchPortfolioWebsiteLanguage = async () => {
       // This will create new progress item.
       const progressItem = document.createElement("div");
       progressItem.className = "progress-item";
-
       // This will set the position and width of the progress item
       progressItem.style.left = `${currentPosition}%`;
       progressItem.style.width = `${percentage}%`;
@@ -332,9 +374,6 @@ const fetchPortfolioWebsiteLanguage = async () => {
       // This will set the color of the progress item (fallback to gray if language do not exist in mapping)
       const color = languageColors[language] || "#ddd";
       progressItem.style.backgroundColor = color;
-
-      // This will add title for hover effect
-      // progressItem.title = `${language}: ${percentage.toFixed(1)}%`;
 
       // This will add the progress item to progress bar
       progressBar.appendChild(progressItem);
@@ -372,4 +411,8 @@ const fetchPortfolioWebsiteLanguage = async () => {
   }
 };
 
-fetchPortfolioWebsiteLanguage();
+fetchRepositoryLanguages(
+  "https://api.github.com/repos/goprin0917/goprin-app/languages",
+  "progress-bar",
+  "language-label-container"
+);
