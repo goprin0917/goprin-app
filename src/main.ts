@@ -248,11 +248,38 @@ copyrightYearLabelElement.forEach((element) => {
 const aboutDescriptionContainerElement = document.getElementById(
   "aboutDescriptionContainer"
 );
+
+const aboutIntroContainerElement = document.getElementById(
+  "aboutIntroContainer"
+)!;
 const educationContainerElement =
   document.getElementById("educationContainer")!;
 
+const aboutIntroImageContainerElement = document.getElementById(
+  "aboutIntroImageContainer"
+);
 const educationImageCarouselElement = document.getElementById(
   "educationImageCarousel"
+);
+
+const aboutIntroContainerAndParentContainerObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        aboutIntroImageContainerElement?.classList.add(
+          "hide-about-image-containers"
+        );
+      } else {
+        aboutIntroImageContainerElement?.classList.remove(
+          "hide-about-image-containers"
+        );
+      }
+    });
+  },
+  {
+    root: aboutDescriptionContainerElement,
+    threshold: 0.2,
+  }
 );
 
 const educationContainerAndParentContainerObserver = new IntersectionObserver(
@@ -273,6 +300,10 @@ const educationContainerAndParentContainerObserver = new IntersectionObserver(
     root: aboutDescriptionContainerElement,
     threshold: 0.2,
   }
+);
+
+aboutIntroContainerAndParentContainerObserver.observe(
+  aboutIntroContainerElement
 );
 educationContainerAndParentContainerObserver.observe(educationContainerElement);
 
