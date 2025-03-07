@@ -1,5 +1,12 @@
 @import "./base.css";
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+
+#downloadAnchor,
+#linkedinAnchor,
+#emailAnchor {
+  color: #5151f0;
+}
 
 img {
   pointer-events: none;
@@ -117,7 +124,7 @@ img {
 .vertical-line {
   width: 1px;
   height: 10rem;
-  background-color: #000;
+  background-color: #fff;
 }
 
 .nav-item:last-child .vertical-line {
@@ -127,7 +134,7 @@ img {
 .circle-marker {
   width: 1rem;
   height: 1rem;
-  border: 1px solid #000;
+  border: 1px solid #fff;
   border-radius: 100%;
 }
 
@@ -164,17 +171,17 @@ img {
 }
 
 .name {
-  font-size: 2.25rem;
+  font-size: clamp(2.25rem, 1.909rem + 1.705vw, 3rem);
   line-height: 2.5rem;
   font-weight: bold;
-  color: #111827;
+  color: #fff;
   margin-bottom: 1rem;
 }
 
 .tech-class {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 0.886rem + 0.568vw, 1.25rem);
   line-height: 1.75rem;
-  color: #6b7280;
+  color: #939599;
 }
 
 /* CONTACT SECTION */
@@ -233,11 +240,11 @@ img {
   font-size: 1.125rem;
   line-height: 1.75rem;
   font-weight: 600;
-  color: #111827;
+  color: #fff;
 }
 
 .contact-description {
-  color: #6b7280;
+  color: #939599;
   margin-top: 0.5rem;
 }
 
@@ -418,7 +425,8 @@ a:hover {
 .image-container {
   position: relative;
   border-radius: 1rem;
-  background-color: #ffffff;
+  background-color: #101218;
+  border: 1px solid #ccc;
 }
 
 .carousel {
@@ -449,7 +457,7 @@ a:hover {
   opacity: 0;
   transition: opacity 1s ease-in-out;
   text-align: center;
-  background-color: #f0f0f0;
+  background-color: #101218;
   overflow: hidden;
 
   display: flex;
@@ -468,10 +476,9 @@ a:hover {
 
   width: 100%;
   height: 100%;
-  background-color: aquamarine;
+  background-color: #101218;
   border-radius: 1rem;
   overflow: hidden;
-  position: relative;
   margin: 0 auto;
 }
 
@@ -482,7 +489,7 @@ a:hover {
 
   width: 100%;
   height: 100%;
-  background-color: aquamarine;
+  background-color: #101218;
   border-radius: 1rem;
 }
 
@@ -497,14 +504,15 @@ img {
   overflow-y: auto;
   height: 100%;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #101218;
 
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
+  border: 1px solid #ccc;
 }
 
-@media (min-width: 320px) and (max-width: 1279px) {
+@media (max-width: 640px) {
   .about-description-container {
     border-radius: 0;
   }
@@ -527,8 +535,8 @@ img {
   min-height: 40rem;
   max-height: 40rem;
   width: 100%;
-  background-color: #ffffff;
-  box-shadow: 0 -2rem 2rem -5px rgba(189, 188, 188, 0.3);
+  background-color: #101218;
+  box-shadow: 0 -2rem 2rem -5px rgba(51, 51, 51, 0.3);
   z-index: 1;
 }
 
@@ -542,8 +550,8 @@ img {
   min-height: 40rem;
   max-height: 40rem;
   width: 100%;
-  background-color: #ffffff;
-  box-shadow: 0 -2rem 2rem -5px rgba(189, 188, 188, 0.3);
+  background-color: #101218;
+  box-shadow: 0 -2rem 2rem -5px rgba(51, 51, 51, 0.3);
   z-index: 2;
 
   display: flex;
@@ -651,13 +659,15 @@ h3 {
 
 @media (max-width: 1279px) {
   .bars-container {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 .bars-icon {
-  height: 2rem;
-  width: 2rem;
+  font-size: 2rem;
+  color: #32b291;
 }
 
 @media (hover: hover) {
