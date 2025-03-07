@@ -1,311 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="src/style/main.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gabby's Portfolio</title>
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="bars-container">
-        <img id="barsIconMenu" class="bars-icon" />
-      </div>
-      <header id="headerContainer" class="header-container">
-        <nav class="timeline-nav">
-          <div class="nav-item">
-            <label id="homeNavLabel" class="nav-link">home</label>
-            <div class="marker-container">
-              <div id="homeMarker" class="circle-marker"></div>
-              <div id="homeVerticalLine" class="vertical-line"></div>
-            </div>
-          </div>
-          <div class="nav-item">
-            <label id="projectsNavLabel" class="nav-link">projects</label>
-            <div class="marker-container">
-              <div id="projectsMarker" class="circle-marker"></div>
-              <div class="vertical-line"></div>
-            </div>
-          </div>
-          <div class="nav-item">
-            <label id="aboutNavLabel" class="nav-link"> about </label>
-            <div class="marker-container">
-              <div id="aboutMarker" class="circle-marker"></div>
-              <div class="vertical-line"></div>
-            </div>
-          </div>
-        </nav>
-      </header>
 
-      <div id="home" class="wrapper-container">
-        <!-- Navigation Section -->
-        <!-- Heading Section -->
-        <section class="heading-container">
-          <p class="introduction">Hi my name is</p>
-          <h1 class="name">Gabriel D. Oprin</h1>
-          <p class="tech-class">
-            I am a junior web developer currently specialized in backend
-            development.
-          </p>
-        </section>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="src/style/main.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gabby's Portfolio</title>
+</head>
 
-        <!-- Contact Section -->
-        <section class="contact-wrapper">
-          <div class="contact-container">
-            <div class="icon-container">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
-                />
-              </svg>
-            </div>
-            <div class="description-container">
-              <h3 class="contact-title">Current Location</h3>
-              <p class="contact-description">Quezon City, PH</p>
-            </div>
+<body>
+  <div class="wrapper">
+    <div class="bars-container">
+      <i id="barsIconMenu" class="bars-icon nf"></i>
+    </div>
+    <header id="headerContainer" class="header-container">
+      <nav class="timeline-nav">
+        <div class="nav-item">
+          <label id="homeNavLabel" class="nav-link">home</label>
+          <div class="marker-container">
+            <div id="homeMarker" class="circle-marker"></div>
+            <div id="homeVerticalLine" class="vertical-line"></div>
           </div>
-          <div class="contact-container">
-            <div class="icon-container">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25"
-                />
-              </svg>
-            </div>
-            <div class="description-container">
-              <h3 class="contact-title">Contact Information</h3>
-              <p class="contact-description">
-                <a href="#" class="email-anchor">gabrieloprin@gmail.com</a>
-                | <a href="#" class="linkedin-anchor">LinkedIn</a>
-              </p>
-            </div>
+        </div>
+        <div class="nav-item">
+          <label id="projectsNavLabel" class="nav-link">projects</label>
+          <div class="marker-container">
+            <div id="projectsMarker" class="circle-marker"></div>
+            <div class="vertical-line"></div>
           </div>
-          <div class="contact-container">
-            <div class="icon-container">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
-                />
-              </svg>
-            </div>
-            <div class="description-container">
-              <h3 class="contact-title">My Resume</h3>
-              <p class="contact-description flex">
-                <a href="#" class="download-anchor">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="download-icon"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="size-6"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
-                    />
-                  </svg>
-                  gabriel-oprin-resume.pdf
-                </a>
-              </p>
-            </div>
+        </div>
+        <div class="nav-item">
+          <label id="aboutNavLabel" class="nav-link"> about </label>
+          <div class="marker-container">
+            <div id="aboutMarker" class="circle-marker"></div>
+            <div class="vertical-line"></div>
           </div>
-        </section>
-        <section id="headingFooter" class="heading-footer">
-          @ <label id="copyrightYear"></label> Gabriel Oprin | Backend
-          Developer. All Rights Reserved.
-        </section>
-      </div>
-      <main class="main-content-wrapper hide">
-        <section id="projects" class="project-section">
-          <div class="project-container">
-            <iframe src="https://gabrieloprin.com" class="web-view"></iframe>
-            <div class="project-descriptions">
-              <div class="project-header">
-                <div class="project-title-container">
-                  <h1>My Portfolio Website</h1>
+        </div>
+      </nav>
+    </header>
+
+    <div id="home" class="wrapper-container">
+      <!-- Navigation Section -->
+      <!-- Heading Section -->
+      <section class="heading-container">
+        <p class="introduction">Hi my name is</p>
+        <h1 class="name">Gabriel D. Oprin</h1>
+        <span class="tech-class">
+          I am a junior web developer currently specialized in backend
+          development.
+        </span>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="contact-wrapper">
+        <div class="contact-container">
+          <div class="icon-container">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+            </svg>
+          </div>
+          <div class="description-container">
+            <h3 class="contact-title">Current Location</h3>
+            <p class="contact-description">Quezon City, PH</p>
+          </div>
+        </div>
+        <div class="contact-container">
+          <div class="icon-container">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25" />
+            </svg>
+          </div>
+          <div class="description-container">
+            <h3 class="contact-title">Contact Information</h3>
+            <p class="contact-description">
+              <a id="emailAnchor" href="#" class="email-anchor">gabrieloprin@gmail.com</a>
+              | <a id="linkedinAnchor" href="#" class="linkedin-anchor">LinkedIn</a>
+            </p>
+          </div>
+        </div>
+        <div class="contact-container">
+          <div class="icon-container">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+            </svg>
+          </div>
+          <div class="description-container">
+            <h3 class="contact-title">My Resume</h3>
+            <p class="contact-description flex">
+              <a id="downloadAnchor" href="#" class="download-anchor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="download-icon" fill="none" viewBox="0 0 24 24"
+                  stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+                gabriel-oprin-resume.pdf
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="headingFooter" class="heading-footer">
+        @ <label id="copyrightYear"></label> Gabriel Oprin | Backend
+        Developer. All Rights Reserved.
+      </section>
+    </div>
+    <main class="main-content-wrapper hide">
+      <section id="projects" class="project-section">
+        <div class="project-container">
+          <iframe src="https://gabrieloprin.com" class="web-view"></iframe>
+          <div class="project-descriptions">
+            <div class="project-header">
+              <div class="project-title-container">
+                <h1>My Portfolio Website</h1>
+              </div>
+              <div class="project-info-container">
+                <div class="project-link">
+                  <i class="nf nf-oct-link"></i> URL:
+                  <a href="https://gabrieloprin.com">https://gabrieloprin.com</a>
                 </div>
-                <div class="project-info-container">
-                  <div class="project-link">
-                    Link:
-                    <a href="https://gabrieloprin.com"
-                      >https://gabrieloprin.com</a
-                    >
-                  </div>
-                  <div class="language-used-container">
-                    <label>Languages</label>
-                    <div class="languages-container">
-                      <div class="progress-bar">
-                        <div class="progress-item"></div>
-                      </div>
-                      <div class="language-label-container">
-                        <div class="language-label-inner-container">
-                          <div class="language-circle-marker"></div>
-                          <label class="language-label"></label>
-                          <span class="progress-percent"></span>
-                        </div>
+                <div class="project-link">
+                  <i class="nf nf-cod-github"></i> GitHub:
+                  <a href="https://gabrieloprin.com">https://gabrieloprin.com</a>
+                </div>
+                <div class="project-link">
+                  <i id="portfolioProjectStatusIcon" class=""></i> Status:
+                  <span id="portfolioProjectStatusValue"></span>
+                </div>
+                <div class="language-used-container">
+                  <label>Languages</label>
+                  <div class="languages-container">
+                    <div class="progress-bar">
+                      <div class="progress-item"></div>
+                    </div>
+                    <div class="language-label-container">
+                      <div class="language-label-inner-container">
+                        <div class="language-circle-marker"></div>
+                        <label class="language-label"></label>
+                        <span class="progress-percent"></span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="project-overview"></div>
             </div>
+            <div class="project-overview"></div>
           </div>
-        </section>
-        <section id="about" class="about-section">
-          <div class="grid-item-container">
-            <div class="image-container">
-              <div
-                id="aboutIntroImageContainer"
-                class="about-intro-image-container"
-              >
-                <img alt="me" src="/assets/me.jpg" />
-              </div>
-              <div
-                id="educationImageCarousel"
-                class="carousel hide-about-image-containers"
-              >
-                <div class="carousel-item">
-                  <img alt="gab-toga" src="/assets/toga.JPG" />
-                </div>
-                <div class="carousel-item">
-                  <img alt="gab-barong" src="/assets/barong.JPG" />
-                </div>
-              </div>
-              <div
-                id="hobbiesImageContainer"
-                class="hobbies-image-container hide-about-image-containers"
-              ></div>
+        </div>
+      </section>
+      <section id="about" class="about-section">
+        <div class="grid-item-container">
+          <div class="image-container">
+            <div id="aboutIntroImageContainer" class="about-intro-image-container">
+              <img alt="me" src="/assets/me.jpg" />
             </div>
+            <div id="educationImageCarousel" class="carousel hide-about-image-containers">
+              <div class="carousel-item">
+                <img alt="gab-toga" src="/assets/toga.JPG" />
+              </div>
+              <div class="carousel-item">
+                <img alt="gab-barong" src="/assets/barong.JPG" />
+              </div>
+            </div>
+            <div id="hobbiesImageContainer" class="hobbies-image-container hide-about-image-containers"></div>
           </div>
-          <div class="grid-item-container">
-            <div
-              id="aboutDescriptionContainer"
-              class="about-description-container"
-            >
-              <div
-                id="aboutIntroContainer"
-                class="professional-identity-container"
-              >
-                <div class="paragraph-container">
-                  <h3 class="education-title">Me</h3>
-                  <p class="paragraph">Hey there! I'm Gabriel Doronio Oprin</p>
-                  <p class="paragraph">
-                    I'm a PHP junior backend developer who loves working with
-                    Laravel to build powerful APIs. Most of my experience
-                    revolves around creating the "engine" that drives web
-                    applications - the part users don't see and appreciate but
-                    definitely feel when it works smoothly.
-                  </p>
-                </div>
-              </div>
-              <div
-                id="whatIDoContainer"
-                class="professional-identity-container hide-container"
-              >
-                <div class="paragraph-container">
-                  <h3 class="education-title">What I Do</h3>
-                  <p class="paragraph">
-                    My main focus is developing robust APIs that connect systems
-                    and make applications work seamlessly. I've worked on
-                    projects involving RESTful APIs and have experience with
-                    single-page applications. While I primarily identify as a
-                    backend developer, I sometimes venture into fullstack
-                    territory. I'll be honest - UI design isn't my strongest
-                    suit (I usually reach for frontend libraries to help me
-                    out), but that just means I really appreciate good frontend
-                    developers!
-                  </p>
-                </div>
-              </div>
-              <div
-                id="myApproachContainer"
-                class="professional-identity-container hide-container"
-              >
-                <div class="paragraph-container">
-                  <h3 class="education-title">My Approach</h3>
-                  <p class="paragraph">
-                    I believe in writing clean, maintainable code that makes
-                    life easier for everyone involved. Documentation matters to
-                    me, and I'm always looking to improve my skills and learn
-                    new technologies.
-                  </p>
-                  <p class="paragraph">
-                    Currently, I'm expanding my knowledge in vanilla PHP, HTML,
-                    CSS, and JavaScript because I feel there's too much "magic"
-                    in the tools I'm currently using, and it feels like I've
-                    skipped over important abstractions and overall
-                    fundamentals. Additionally, I'm learning game development as
-                    a hobby so that I won't get burned out with coding, which
-                    I'm pretty excited about.
-                  </p>
-                </div>
-              </div>
-              <div
-                id="educationContainer"
-                class="education-container hide-container"
-              >
-                <h3 class="education-title">Education</h3>
-                <div class="education-summary-container">
-                  <label class="education-degree"
-                    >Bachelor of Science in Information Technology</label
-                  >
-                  <span class="education-school">Quezon City University</span>
-                  <span class="education-year">2018-2022</span>
-                </div>
+        </div>
+        <div class="grid-item-container">
+          <div id="aboutDescriptionContainer" class="about-description-container">
+            <div id="aboutIntroContainer" class="professional-identity-container">
+              <div class="paragraph-container">
+                <h3 class="education-title">Me</h3>
+                <p class="paragraph">Hey there! I'm Gabriel Doronio Oprin</p>
                 <p class="paragraph">
-                  I attended Quezon City University in the Philippines and
-                  earned a Bachelor's degree in Information Technology because I
-                  believed IT professionals had higher earning potential at the
-                  time. Although I didn't have a strong passion for technology
-                  initially, I chose this program with a practical mindset
-                  focused on future financial stability. I persevered and
-                  completed my degree with average academic standing. My passion
-                  for technology and programming emerged after landing my first
-                  job, and my drive to learn and excel in this field continues
-                  to grow thanks to senior developers that I met who became my
-                  inspirations.
+                  I'm a PHP junior backend developer who loves working with
+                  Laravel to build powerful APIs. Most of my experience
+                  revolves around creating the "engine" that drives web
+                  applications - the part users don't see and appreciate but
+                  definitely feel when it works smoothly.
                 </p>
               </div>
-              <!-- <div id="hobbiesContainer" class="hobby-container hide-container">
+            </div>
+            <div id="whatIDoContainer" class="professional-identity-container hide-container">
+              <div class="paragraph-container">
+                <h3 class="education-title">What I Do</h3>
+                <p class="paragraph">
+                  My main focus is developing robust APIs that connect systems
+                  and make applications work seamlessly. I've worked on
+                  projects involving RESTful APIs and have experience with
+                  single-page applications. While I primarily identify as a
+                  backend developer, I sometimes venture into fullstack
+                  territory. I'll be honest - UI design isn't my strongest
+                  suit (I usually reach for frontend libraries to help me
+                  out), but that just means I really appreciate good frontend
+                  developers!
+                </p>
+              </div>
+            </div>
+            <div id="myApproachContainer" class="professional-identity-container hide-container">
+              <div class="paragraph-container">
+                <h3 class="education-title">My Approach</h3>
+                <p class="paragraph">
+                  I believe in writing clean, maintainable code that makes
+                  life easier for everyone involved. Documentation matters to
+                  me, and I'm always looking to improve my skills and learn
+                  new technologies.
+                </p>
+                <p class="paragraph">
+                  Currently, I'm expanding my knowledge in vanilla PHP, HTML,
+                  CSS, and JavaScript because I feel there's too much "magic"
+                  in the tools I'm currently using, and it feels like I've
+                  skipped over important abstractions and overall
+                  fundamentals. Additionally, I'm learning game development as
+                  a hobby so that I won't get burned out with coding, which
+                  I'm pretty excited about.
+                </p>
+              </div>
+            </div>
+            <div id="educationContainer" class="education-container hide-container">
+              <h3 class="education-title">Education</h3>
+              <div class="education-summary-container">
+                <label class="education-degree">Bachelor of Science in Information Technology</label>
+                <span class="education-school">Quezon City University</span>
+                <span class="education-year">2018-2022</span>
+              </div>
+              <p class="paragraph">
+                I attended Quezon City University in the Philippines and
+                earned a Bachelor's degree in Information Technology because I
+                believed IT professionals had higher earning potential at the
+                time. Although I didn't have a strong passion for technology
+                initially, I chose this program with a practical mindset
+                focused on future financial stability. I persevered and
+                completed my degree with average academic standing. My passion
+                for technology and programming emerged after landing my first
+                job, and my drive to learn and excel in this field continues
+                to grow thanks to senior developers that I met who became my
+                inspirations.
+              </p>
+            </div>
+            <!-- <div id="hobbiesContainer" class="hobby-container hide-container">
                 <h3 class="education-title">Hobbies</h3>
                 <p class="paragraph">
                   I attended Quezon City University in the Philippines and
@@ -321,15 +259,16 @@
                   inspirations.
                 </p>
               </div> -->
-            </div>
           </div>
-        </section>
-      </main>
-      <footer id="footerContentWrapper" class="footer-content-wrapper">
-        @ <label id="copyrightYear"></label> Gabriel Oprin | Backend Developer.
-        All Rights Reserved.
-      </footer>
-    </div>
-  </body>
-  <script type="module" src="src/main.ts"></script>
+        </div>
+      </section>
+    </main>
+    <footer id="footerContentWrapper" class="footer-content-wrapper">
+      @ <label id="copyrightYear"></label> Gabriel Oprin | Backend Developer.
+      All Rights Reserved.
+    </footer>
+  </div>
+</body>
+<script type="module" src="src/main.ts"></script>
+
 </html>
