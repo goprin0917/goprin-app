@@ -2,9 +2,7 @@
 @import "https://www.nerdfonts.com/assets/css/webfont.css";
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
 
-#downloadAnchor,
-#linkedinAnchor,
-#emailAnchor {
+a {
   color: #5151f0;
 }
 
@@ -14,13 +12,66 @@ img {
 
 .hide {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  filter: blur(5px);
+  transform: translateY(100%);
+  transition: all 0.8s ease-out;
 }
 
 .show {
   opacity: 1;
+  filter: blur(0);
   transform: translateY(0);
+}
+
+.hide-x {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 0.8s ease-out;
+}
+
+.show-x {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion) {
+  .hidden {
+    transition: none;
+  }
+
+  .hidden-x {
+    transition: none;
+  }
+}
+
+.project-delay:nth-child(1) {
+  transition-delay: 30ms;
+}
+
+.project-delay:nth-child(2) {
+  transition-delay: 60ms;
+}
+
+.contact-delay:nth-child(1) {
+  transition-delay: 150ms;
+}
+
+.contact-delay:nth-child(2) {
+  transition-delay: 250ms;
+}
+
+.contact-delay:nth-child(3) {
+  transition-delay: 350ms;
+}
+
+.about-delay:nth-child(1) {
+  transition-delay: 100ms;
+}
+
+.about-delay:nth-child(2) {
+  transition-delay: 250ms;
 }
 
 .hide-container {
@@ -46,7 +97,6 @@ img {
 }
 
 .active-nav-label {
-  -webkit-text-stroke: 0.07px black;
   color: #32b291;
 }
 
@@ -57,6 +107,7 @@ img {
   width: 100%;
   height: 100%;
   align-items: center;
+  font-family: "FiraCode", monospace;
 }
 
 .header-container {
@@ -95,7 +146,7 @@ img {
 .nav-item {
   position: relative;
   display: flex;
-  width: 6rem;
+  width: 7rem;
   justify-content: flex-end;
 }
 
@@ -106,7 +157,7 @@ img {
   padding: 0;
   position: absolute;
   left: 0;
-  font-family: "Figtree", serif;
+  font-family: "FiraCode", monospace;
 }
 
 @media (hover: hover) {
@@ -155,7 +206,7 @@ img {
   text-align: center;
   padding: 4rem 1.5rem;
   overflow-x: hidden;
-  font-family: "Figtree", serif;
+  font-family: "FiraCode", monospace;
 }
 
 /*HEADING SECTION*/
@@ -285,15 +336,36 @@ a:hover {
   flex-direction: column;
 }
 
+.section-header-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: #101218;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  padding-bottom: 5rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 1.773rem + 1.136vw, 2.5rem);
+}
+
 .project-section {
   position: relative;
+  top: 0;
   width: 100%;
   max-width: 1024px;
   min-height: 100vh;
 
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
 }
 
 .project-container {
@@ -301,11 +373,40 @@ a:hover {
   padding: 1rem;
 }
 
-.web-view {
+@media (max-width: 640px) {
+  .project-container {
+    overflow: hidden;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-image-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.project-image__mobile-view {
+  display: block;
   width: 320px;
   height: 500px;
   border-radius: 1rem;
   border: 1px solid #ccc;
+  aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 640px) {
+  .project-image__mobile-view {
+    height: 300px;
+  }
+}
+
+.project-title {
+  font-size: clamp(1.625rem, 1.455rem + 0.852vw, 2rem);
 }
 
 .project-title-container {
@@ -313,15 +414,29 @@ a:hover {
 }
 
 .project-descriptions {
+  position: relative;
   width: 100%;
   max-height: 500px;
   height: 500px;
-  /* background-color: #99bdb4; */
+  overflow-y: auto;
+  overflow-x: hidden;
 
   display: flex;
   flex-direction: column;
   padding-left: 1rem;
   padding-right: 1rem;
+  background-color: #101218;
+}
+
+@media (max-width: 640px) {
+  .project-image__mobile-view {
+    height: 350px;
+  }
+
+  .project-descriptions {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
 }
 
 .language-used-container {
@@ -329,6 +444,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
+  margin-top: 0.5rem;
 }
 
 .languages-container {
@@ -382,21 +498,35 @@ a:hover {
 }
 
 .project-header {
+  position: sticky;
+  top: 0;
   width: 100%;
+  background-color: #101218;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px #ccc solid;
 }
 
 .project-overview {
+  margin-top: 1rem;
   width: 100%;
   height: 100%;
 }
 
 .about-section {
   position: relative;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   max-width: 1024px;
+  width: 100%;
   min-height: 100vh;
+}
+
+.grid-container {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  background-color: #101218;
 }
 
 .grid-item-container {
@@ -523,7 +653,7 @@ img {
 .hobby-container {
   display: flex;
   flex-direction: column;
-  font-family: "Figtree", serif;
+  font-family: "FiraCode", monospace;
   padding: 1rem;
   overflow-x: hidden;
   overflow-y: auto;
@@ -592,7 +722,9 @@ img {
 }
 
 .paragraph {
+  font-family: "FiraCode", monospace;
   line-height: 2;
+  font-size: clamp(0.875rem, 0.818rem + 0.284vw, 1rem);
 }
 
 .hobby-container {
