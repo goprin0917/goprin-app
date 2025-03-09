@@ -98,7 +98,26 @@ const observer = new IntersectionObserver(
   }
 );
 
+const transitionXObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show-x");
+      } else {
+        entry.target.classList.remove("show-x");
+      }
+    })
+  },
+  {
+    threshold: 0.1,
+  }
+);
+
 const hiddenElements = document.querySelectorAll(".hide");
+const xHiddenElements = document.querySelectorAll(".hide-x");
+xHiddenElements.forEach(element => {
+  transitionXObserver.observe(element);
+});
 hiddenElements.forEach((element) => observer.observe(element));
 
 const homeWrapperContainerElement = document.getElementById("home")!;
@@ -125,7 +144,7 @@ const homeSectionObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.9,
+    threshold: 0.4,
   }
 );
 
@@ -142,7 +161,7 @@ const projectSectionObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.9,
+    threshold: 0.4,
   }
 );
 
@@ -159,7 +178,7 @@ const aboutSectionObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.9,
+    threshold: 0.4,
   }
 );
 
@@ -204,7 +223,7 @@ document.getElementById("aboutNavLabel")?.addEventListener("click", (event) => {
 function scrollToElement(elementId: string) {
   const element = document.getElementById(elementId);
   if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 }
 
@@ -506,7 +525,7 @@ const statusOptions: StatusOptions[] = [
     name: "In progress",
     value: "in-progress",
     iconClass: "nf-md-progress_clock",
-    color: "#328fd4"
+    color: "#32c054"
   },
   {
     name: "Completed",
