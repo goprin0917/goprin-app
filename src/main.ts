@@ -144,7 +144,7 @@ const homeSectionObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.4,
+    threshold: 0.5,
   }
 );
 
@@ -161,7 +161,7 @@ const projectSectionObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.4,
+    threshold: 0.5,
   }
 );
 
@@ -178,7 +178,7 @@ const aboutSectionObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.4,
+    threshold: 0.5,
   }
 );
 
